@@ -8,7 +8,7 @@
 /* A few macros that might be useful */
 /* Feel free to add macros you want */
 #define DNS_PORT 53
-#define BUFFER_SIZE 2048 
+#define BUFFER_SIZE 2048
 
 
 
@@ -20,25 +20,26 @@ int main() {
     socklen_t client_len = sizeof(client_addr);
     char buffer[BUFFER_SIZE];
 
-    /* PART1 TODO: Implement a DNS nameserver for the cs.utexas.edu zone */
-    
-    /* 1. Create an **UDP** socket */
+    /* PART 1 TODO: Implement a DNS nameserver for the cs.utexas.edu zone */
 
-    /* 2. Initialize server address (INADDR_ANY, DNS_PORT) */
-    /* Then bind the socket to it */
+    /* 1. Create a **UDP** socket */
 
-    /* 3. Initialize a server context using TDNSInit() */
-    /* This context will be used for future TDNS library function calls */
+    /* 2. Initialize the server address (INADDR_ANY, DNS_PORT) */
+    /*    and bind the socket to this address. */
 
-    /* 4. Create the cs.utexas.edu zone using TDNSCreateZone() */
-    /* Add an IP address for cs.utexas.edu domain using TDNSAddRecord() */
-    /* Add an IP address for aquila.cs.utexas.edu domain using TDNSAddRecord() */
+    /* 3. Initialize a TDNS server context using TDNSInit(). */
+    /*    This context will be used for all subsequent TDNS library calls. */
 
-    /* 5. Receive a message continuously and parse it using TDNSParseMsg() */
+    /* 4. Create the cs.utexas.edu zone with TDNSCreateZone(). */
+    /*    - Add an A record for cs.utexas.edu using TDNSAddRecord(). */
+    /*    - Add an A record for aquila.cs.utexas.edu. */
 
-    /* 6. If it is a query for A, AAAA, NS DNS record */
-    /* find the corresponding record using TDNSFind() and send the response back */
-    /* Otherwise, just ignore it. */
+    /* 5. Enter a loop to receive incoming DNS messages */
+    /*    and parse each message using TDNSParseMsg(). */
+
+    /* 6. If the message is a query for A, AAAA, or NS records: */
+    /*      - Look up the record with TDNSFind() and send a response. */
+    /*    Otherwise, ignore the message. */
 
     return 0;
 }
